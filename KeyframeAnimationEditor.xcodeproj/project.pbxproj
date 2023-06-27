@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4662237C2A4AE1F000F68964 /* KeyframeAnimationEditorData in Frameworks */ = {isa = PBXBuildFile; productRef = 4662237B2A4AE1F000F68964 /* KeyframeAnimationEditorData */; };
+		4662237E2A4AE1F000F68964 /* KeyframeAnimationEditorUI in Frameworks */ = {isa = PBXBuildFile; productRef = 4662237D2A4AE1F000F68964 /* KeyframeAnimationEditorUI */; };
 		46E85FA92A4A7A1900B5C882 /* KeyframeAnimationEditorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E85FA82A4A7A1900B5C882 /* KeyframeAnimationEditorApp.swift */; };
-		46E85FAB2A4A7A1900B5C882 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E85FAA2A4A7A1900B5C882 /* ContentView.swift */; };
 		46E85FAD2A4A7A1B00B5C882 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46E85FAC2A4A7A1B00B5C882 /* Assets.xcassets */; };
 		46E85FB12A4A7A1B00B5C882 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46E85FB02A4A7A1B00B5C882 /* Preview Assets.xcassets */; };
 		46E85FBB2A4A7A1B00B5C882 /* KeyframeAnimationEditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E85FBA2A4A7A1B00B5C882 /* KeyframeAnimationEditorTests.swift */; };
@@ -34,9 +35,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		466223752A4AB65100F68964 /* KeyframeAnimationEditorData */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = KeyframeAnimationEditorData; sourceTree = "<group>"; };
 		46E85FA52A4A7A1900B5C882 /* KeyframeAnimationEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyframeAnimationEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46E85FA82A4A7A1900B5C882 /* KeyframeAnimationEditorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyframeAnimationEditorApp.swift; sourceTree = "<group>"; };
-		46E85FAA2A4A7A1900B5C882 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		46E85FAC2A4A7A1B00B5C882 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46E85FAE2A4A7A1B00B5C882 /* KeyframeAnimationEditor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KeyframeAnimationEditor.entitlements; sourceTree = "<group>"; };
 		46E85FB02A4A7A1B00B5C882 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -45,6 +46,7 @@
 		46E85FC02A4A7A1B00B5C882 /* KeyframeAnimationEditorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeyframeAnimationEditorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		46E85FC42A4A7A1B00B5C882 /* KeyframeAnimationEditorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyframeAnimationEditorUITests.swift; sourceTree = "<group>"; };
 		46E85FC62A4A7A1B00B5C882 /* KeyframeAnimationEditorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyframeAnimationEditorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		46E85FD32A4A88BA00B5C882 /* KeyframeAnimationEditorUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = KeyframeAnimationEditorUI; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4662237E2A4AE1F000F68964 /* KeyframeAnimationEditorUI in Frameworks */,
+				4662237C2A4AE1F000F68964 /* KeyframeAnimationEditorData in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,13 +76,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		466223762A4AE1C400F68964 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		46E85F9C2A4A7A1900B5C882 = {
 			isa = PBXGroup;
 			children = (
+				466223752A4AB65100F68964 /* KeyframeAnimationEditorData */,
+				46E85FD32A4A88BA00B5C882 /* KeyframeAnimationEditorUI */,
 				46E85FA72A4A7A1900B5C882 /* KeyframeAnimationEditor */,
 				46E85FB92A4A7A1B00B5C882 /* KeyframeAnimationEditorTests */,
 				46E85FC32A4A7A1B00B5C882 /* KeyframeAnimationEditorUITests */,
 				46E85FA62A4A7A1900B5C882 /* Products */,
+				466223762A4AE1C400F68964 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,7 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				46E85FA82A4A7A1900B5C882 /* KeyframeAnimationEditorApp.swift */,
-				46E85FAA2A4A7A1900B5C882 /* ContentView.swift */,
 				46E85FAC2A4A7A1B00B5C882 /* Assets.xcassets */,
 				46E85FAE2A4A7A1B00B5C882 /* KeyframeAnimationEditor.entitlements */,
 				46E85FAF2A4A7A1B00B5C882 /* Preview Content */,
@@ -145,6 +158,10 @@
 			dependencies = (
 			);
 			name = KeyframeAnimationEditor;
+			packageProductDependencies = (
+				4662237B2A4AE1F000F68964 /* KeyframeAnimationEditorData */,
+				4662237D2A4AE1F000F68964 /* KeyframeAnimationEditorUI */,
+			);
 			productName = KeyframeAnimationEditor;
 			productReference = 46E85FA52A4A7A1900B5C882 /* KeyframeAnimationEditor.app */;
 			productType = "com.apple.product-type.application";
@@ -259,7 +276,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46E85FAB2A4A7A1900B5C882 /* ContentView.swift in Sources */,
 				46E85FA92A4A7A1900B5C882 /* KeyframeAnimationEditorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -617,6 +633,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4662237B2A4AE1F000F68964 /* KeyframeAnimationEditorData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = KeyframeAnimationEditorData;
+		};
+		4662237D2A4AE1F000F68964 /* KeyframeAnimationEditorUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = KeyframeAnimationEditorUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 46E85F9D2A4A7A1900B5C882 /* Project object */;
 }

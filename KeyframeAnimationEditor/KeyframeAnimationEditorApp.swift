@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import KeyframeAnimationEditorUI
 
 @main
 struct KeyframeAnimationEditorApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            EditorView()
         }
     }
 }
