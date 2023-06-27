@@ -1,0 +1,622 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		46E85FA92A4A7A1900B5C882 /* KeyframeAnimationEditorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E85FA82A4A7A1900B5C882 /* KeyframeAnimationEditorApp.swift */; };
+		46E85FAB2A4A7A1900B5C882 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E85FAA2A4A7A1900B5C882 /* ContentView.swift */; };
+		46E85FAD2A4A7A1B00B5C882 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46E85FAC2A4A7A1B00B5C882 /* Assets.xcassets */; };
+		46E85FB12A4A7A1B00B5C882 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46E85FB02A4A7A1B00B5C882 /* Preview Assets.xcassets */; };
+		46E85FBB2A4A7A1B00B5C882 /* KeyframeAnimationEditorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E85FBA2A4A7A1B00B5C882 /* KeyframeAnimationEditorTests.swift */; };
+		46E85FC52A4A7A1B00B5C882 /* KeyframeAnimationEditorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E85FC42A4A7A1B00B5C882 /* KeyframeAnimationEditorUITests.swift */; };
+		46E85FC72A4A7A1B00B5C882 /* KeyframeAnimationEditorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E85FC62A4A7A1B00B5C882 /* KeyframeAnimationEditorUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		46E85FB72A4A7A1B00B5C882 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46E85F9D2A4A7A1900B5C882 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 46E85FA42A4A7A1900B5C882;
+			remoteInfo = KeyframeAnimationEditor;
+		};
+		46E85FC12A4A7A1B00B5C882 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46E85F9D2A4A7A1900B5C882 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 46E85FA42A4A7A1900B5C882;
+			remoteInfo = KeyframeAnimationEditor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		46E85FA52A4A7A1900B5C882 /* KeyframeAnimationEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyframeAnimationEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		46E85FA82A4A7A1900B5C882 /* KeyframeAnimationEditorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyframeAnimationEditorApp.swift; sourceTree = "<group>"; };
+		46E85FAA2A4A7A1900B5C882 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		46E85FAC2A4A7A1B00B5C882 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		46E85FAE2A4A7A1B00B5C882 /* KeyframeAnimationEditor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KeyframeAnimationEditor.entitlements; sourceTree = "<group>"; };
+		46E85FB02A4A7A1B00B5C882 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		46E85FB62A4A7A1B00B5C882 /* KeyframeAnimationEditorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeyframeAnimationEditorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		46E85FBA2A4A7A1B00B5C882 /* KeyframeAnimationEditorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyframeAnimationEditorTests.swift; sourceTree = "<group>"; };
+		46E85FC02A4A7A1B00B5C882 /* KeyframeAnimationEditorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeyframeAnimationEditorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		46E85FC42A4A7A1B00B5C882 /* KeyframeAnimationEditorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyframeAnimationEditorUITests.swift; sourceTree = "<group>"; };
+		46E85FC62A4A7A1B00B5C882 /* KeyframeAnimationEditorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyframeAnimationEditorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		46E85FA22A4A7A1900B5C882 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46E85FB32A4A7A1B00B5C882 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46E85FBD2A4A7A1B00B5C882 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		46E85F9C2A4A7A1900B5C882 = {
+			isa = PBXGroup;
+			children = (
+				46E85FA72A4A7A1900B5C882 /* KeyframeAnimationEditor */,
+				46E85FB92A4A7A1B00B5C882 /* KeyframeAnimationEditorTests */,
+				46E85FC32A4A7A1B00B5C882 /* KeyframeAnimationEditorUITests */,
+				46E85FA62A4A7A1900B5C882 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		46E85FA62A4A7A1900B5C882 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				46E85FA52A4A7A1900B5C882 /* KeyframeAnimationEditor.app */,
+				46E85FB62A4A7A1B00B5C882 /* KeyframeAnimationEditorTests.xctest */,
+				46E85FC02A4A7A1B00B5C882 /* KeyframeAnimationEditorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		46E85FA72A4A7A1900B5C882 /* KeyframeAnimationEditor */ = {
+			isa = PBXGroup;
+			children = (
+				46E85FA82A4A7A1900B5C882 /* KeyframeAnimationEditorApp.swift */,
+				46E85FAA2A4A7A1900B5C882 /* ContentView.swift */,
+				46E85FAC2A4A7A1B00B5C882 /* Assets.xcassets */,
+				46E85FAE2A4A7A1B00B5C882 /* KeyframeAnimationEditor.entitlements */,
+				46E85FAF2A4A7A1B00B5C882 /* Preview Content */,
+			);
+			path = KeyframeAnimationEditor;
+			sourceTree = "<group>";
+		};
+		46E85FAF2A4A7A1B00B5C882 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				46E85FB02A4A7A1B00B5C882 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		46E85FB92A4A7A1B00B5C882 /* KeyframeAnimationEditorTests */ = {
+			isa = PBXGroup;
+			children = (
+				46E85FBA2A4A7A1B00B5C882 /* KeyframeAnimationEditorTests.swift */,
+			);
+			path = KeyframeAnimationEditorTests;
+			sourceTree = "<group>";
+		};
+		46E85FC32A4A7A1B00B5C882 /* KeyframeAnimationEditorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				46E85FC42A4A7A1B00B5C882 /* KeyframeAnimationEditorUITests.swift */,
+				46E85FC62A4A7A1B00B5C882 /* KeyframeAnimationEditorUITestsLaunchTests.swift */,
+			);
+			path = KeyframeAnimationEditorUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		46E85FA42A4A7A1900B5C882 /* KeyframeAnimationEditor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46E85FCA2A4A7A1B00B5C882 /* Build configuration list for PBXNativeTarget "KeyframeAnimationEditor" */;
+			buildPhases = (
+				46E85FA12A4A7A1900B5C882 /* Sources */,
+				46E85FA22A4A7A1900B5C882 /* Frameworks */,
+				46E85FA32A4A7A1900B5C882 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KeyframeAnimationEditor;
+			productName = KeyframeAnimationEditor;
+			productReference = 46E85FA52A4A7A1900B5C882 /* KeyframeAnimationEditor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		46E85FB52A4A7A1B00B5C882 /* KeyframeAnimationEditorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46E85FCD2A4A7A1B00B5C882 /* Build configuration list for PBXNativeTarget "KeyframeAnimationEditorTests" */;
+			buildPhases = (
+				46E85FB22A4A7A1B00B5C882 /* Sources */,
+				46E85FB32A4A7A1B00B5C882 /* Frameworks */,
+				46E85FB42A4A7A1B00B5C882 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				46E85FB82A4A7A1B00B5C882 /* PBXTargetDependency */,
+			);
+			name = KeyframeAnimationEditorTests;
+			productName = KeyframeAnimationEditorTests;
+			productReference = 46E85FB62A4A7A1B00B5C882 /* KeyframeAnimationEditorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		46E85FBF2A4A7A1B00B5C882 /* KeyframeAnimationEditorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 46E85FD02A4A7A1B00B5C882 /* Build configuration list for PBXNativeTarget "KeyframeAnimationEditorUITests" */;
+			buildPhases = (
+				46E85FBC2A4A7A1B00B5C882 /* Sources */,
+				46E85FBD2A4A7A1B00B5C882 /* Frameworks */,
+				46E85FBE2A4A7A1B00B5C882 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				46E85FC22A4A7A1B00B5C882 /* PBXTargetDependency */,
+			);
+			name = KeyframeAnimationEditorUITests;
+			productName = KeyframeAnimationEditorUITests;
+			productReference = 46E85FC02A4A7A1B00B5C882 /* KeyframeAnimationEditorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		46E85F9D2A4A7A1900B5C882 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					46E85FA42A4A7A1900B5C882 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					46E85FB52A4A7A1B00B5C882 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 46E85FA42A4A7A1900B5C882;
+					};
+					46E85FBF2A4A7A1B00B5C882 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = 46E85FA42A4A7A1900B5C882;
+					};
+				};
+			};
+			buildConfigurationList = 46E85FA02A4A7A1900B5C882 /* Build configuration list for PBXProject "KeyframeAnimationEditor" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 46E85F9C2A4A7A1900B5C882;
+			productRefGroup = 46E85FA62A4A7A1900B5C882 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				46E85FA42A4A7A1900B5C882 /* KeyframeAnimationEditor */,
+				46E85FB52A4A7A1B00B5C882 /* KeyframeAnimationEditorTests */,
+				46E85FBF2A4A7A1B00B5C882 /* KeyframeAnimationEditorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		46E85FA32A4A7A1900B5C882 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46E85FB12A4A7A1B00B5C882 /* Preview Assets.xcassets in Resources */,
+				46E85FAD2A4A7A1B00B5C882 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46E85FB42A4A7A1B00B5C882 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46E85FBE2A4A7A1B00B5C882 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		46E85FA12A4A7A1900B5C882 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46E85FAB2A4A7A1900B5C882 /* ContentView.swift in Sources */,
+				46E85FA92A4A7A1900B5C882 /* KeyframeAnimationEditorApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46E85FB22A4A7A1B00B5C882 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46E85FBB2A4A7A1B00B5C882 /* KeyframeAnimationEditorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46E85FBC2A4A7A1B00B5C882 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				46E85FC72A4A7A1B00B5C882 /* KeyframeAnimationEditorUITestsLaunchTests.swift in Sources */,
+				46E85FC52A4A7A1B00B5C882 /* KeyframeAnimationEditorUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		46E85FB82A4A7A1B00B5C882 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 46E85FA42A4A7A1900B5C882 /* KeyframeAnimationEditor */;
+			targetProxy = 46E85FB72A4A7A1B00B5C882 /* PBXContainerItemProxy */;
+		};
+		46E85FC22A4A7A1B00B5C882 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 46E85FA42A4A7A1900B5C882 /* KeyframeAnimationEditor */;
+			targetProxy = 46E85FC12A4A7A1B00B5C882 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		46E85FC82A4A7A1B00B5C882 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		46E85FC92A4A7A1B00B5C882 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		46E85FCB2A4A7A1B00B5C882 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = KeyframeAnimationEditor/KeyframeAnimationEditor.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"KeyframeAnimationEditor/Preview Content\"";
+				DEVELOPMENT_TEAM = B4S4333JDW;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.touyou.KeyframeAnimationEditor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		46E85FCC2A4A7A1B00B5C882 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = KeyframeAnimationEditor/KeyframeAnimationEditor.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"KeyframeAnimationEditor/Preview Content\"";
+				DEVELOPMENT_TEAM = B4S4333JDW;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.touyou.KeyframeAnimationEditor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		46E85FCE2A4A7A1B00B5C882 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B4S4333JDW;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.touyou.KeyframeAnimationEditorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeyframeAnimationEditor.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KeyframeAnimationEditor";
+			};
+			name = Debug;
+		};
+		46E85FCF2A4A7A1B00B5C882 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B4S4333JDW;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.touyou.KeyframeAnimationEditorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeyframeAnimationEditor.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KeyframeAnimationEditor";
+			};
+			name = Release;
+		};
+		46E85FD12A4A7A1B00B5C882 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B4S4333JDW;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.touyou.KeyframeAnimationEditorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KeyframeAnimationEditor;
+			};
+			name = Debug;
+		};
+		46E85FD22A4A7A1B00B5C882 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B4S4333JDW;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.touyou.KeyframeAnimationEditorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KeyframeAnimationEditor;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		46E85FA02A4A7A1900B5C882 /* Build configuration list for PBXProject "KeyframeAnimationEditor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46E85FC82A4A7A1B00B5C882 /* Debug */,
+				46E85FC92A4A7A1B00B5C882 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46E85FCA2A4A7A1B00B5C882 /* Build configuration list for PBXNativeTarget "KeyframeAnimationEditor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46E85FCB2A4A7A1B00B5C882 /* Debug */,
+				46E85FCC2A4A7A1B00B5C882 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46E85FCD2A4A7A1B00B5C882 /* Build configuration list for PBXNativeTarget "KeyframeAnimationEditorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46E85FCE2A4A7A1B00B5C882 /* Debug */,
+				46E85FCF2A4A7A1B00B5C882 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		46E85FD02A4A7A1B00B5C882 /* Build configuration list for PBXNativeTarget "KeyframeAnimationEditorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				46E85FD12A4A7A1B00B5C882 /* Debug */,
+				46E85FD22A4A7A1B00B5C882 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 46E85F9D2A4A7A1900B5C882 /* Project object */;
+}
