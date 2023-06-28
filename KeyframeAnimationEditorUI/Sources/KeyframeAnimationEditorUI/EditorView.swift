@@ -30,3 +30,9 @@ public struct EditorView: View {
         .padding()
     }
 }
+
+struct EditorView_Preview: PreviewProvider {
+    static var previews: some View {
+        EditorView()
+    }
+}
