@@ -9,24 +9,33 @@ import SwiftUI
 import KeyframeAnimationEditorData
 
 public struct EditorView: View {
-    @State var keyframeObjects = [
-        KeyframeObject(to: CGSize(width: 2.0, height: 2.0))
-    ]
+    @State var keyframeObjects: [KeyframeObject<CGSize>] = []
     @State var reviewId = 0
     
     public init() {}
     
     public var body: some View {
         HStack {
-            VStack(alignment: .center) {
-                Button("current animation: \(keyframeObjects.count)") {
-                    keyframeObjects.append(KeyframeObject(to: CGSize(width: Double.random(in: 0.5..<3.0), height: Double.random(in: 0.5..<3.0))))
-                    reviewId = reviewId + 1
+            List {
+                Section("control") {
+                    Button("add random animation") {
+                        keyframeObjects.append(KeyframeObject(to: CGSize(width: Double.random(in: 0.5..<3.0), height: Double.random(in: 0.5..<3.0))))
+                        reviewId = reviewId + 1
+                    }
+                }
+                
+                Section("spring anim") {
+                    ForEach(keyframeObjects) { object in
+                        Text(object.description)
+                    }
+                    if keyframeObjects.isEmpty {
+                        ContentUnavailableView("まだアニメーションがありません", systemImage: "cat.circle.fill")
+                    }
+
                 }
             }
-            .padding()
+            .listStyle(.insetGrouped)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color(uiColor: .systemGroupedBackground))
 
             VStack(alignment: .center) {
                 Image(systemName: "globe")

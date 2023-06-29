@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-public struct KeyframeObject<Value> where Value: Animatable {
+public struct KeyframeObject<Value>: Identifiable where Value: Animatable {
+    public let id: UUID
     let type = "spring"
     let to: Value
     let duration: Double?
@@ -23,7 +24,14 @@ public struct KeyframeObject<Value> where Value: Animatable {
     }
         
     public init(to: Value, duration: Double? = nil) {
+        self.id = UUID()
         self.to = to
         self.duration = duration
+    }
+}
+
+extension KeyframeObject: CustomStringConvertible {
+    public var description: String {
+        "type: \(type), to: \(to), duration: \(String(describing: duration))"
     }
 }
