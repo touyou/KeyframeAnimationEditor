@@ -22,7 +22,7 @@ public struct KeyframeObject<Value> where Value: Animatable {
         }
     }
         
-    public init(to: Value, duration: Double?) {
+    public init(to: Value, duration: Double? = nil) {
         self.to = to
         self.duration = duration
     }

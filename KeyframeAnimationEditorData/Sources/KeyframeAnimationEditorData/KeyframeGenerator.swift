@@ -7,18 +7,10 @@
 
 import SwiftUI
 
-public struct KeyframeGenerator<Root, Value> where Value: Animatable {
-    public let path: WritableKeyPath<Root, Value>
-    
-    public var keyframeObjects: [KeyframeObject<Value>]
-    public var keyframeTrack: KeyframeTrack<Root, Value, some KeyframeTrackContent<Value>> {
+public class KeyframeGenerator {
+    public static func keyframeTrack<Root, Value>(path: WritableKeyPath<Root, Value>, keyframeObjects: [KeyframeObject<Value>]) -> KeyframeTrack<Root, Value, some KeyframeTrackContent<Value>> where Value: Animatable {
         KeyframeTrack(path) {
             KeyframesBuilder.buildArray(keyframeObjects.map { $0.keyframe })
         }
-    }
-
-    public init(path: WritableKeyPath<Root, Value>, keyframeObjects: Array<KeyframeObject<Value>>) {
-        self.path = path
-        self.keyframeObjects = keyframeObjects
     }
 }
