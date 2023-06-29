@@ -18,8 +18,52 @@ public struct EditorView: View {
         HStack {
             List {
                 Section("control") {
-                    Button("add random animation") {
-                        keyframeObjects.append(KeyframeObject(to: CGSize(width: Double.random(in: 0.5..<3.0), height: Double.random(in: 0.5..<3.0))))
+                    Button("add spring animation") {
+                        keyframeObjects.append(
+                            KeyframeObject(
+                                type: .spring(
+                                    CGSize(width: Double.random(in: 0.5..<3.0), height: Double.random(in: 0.5..<3.0)),
+                                    nil,
+                                    nil,
+                                    nil
+                                )
+                            )
+                        )
+                        reviewId = reviewId + 1
+                    }
+                    Button("add cubic animation") {
+                        keyframeObjects.append(
+                            KeyframeObject(
+                                type: .cubic(
+                                    CGSize(width: Double.random(in: 0.5..<3.0), height: Double.random(in: 0.5..<3.0)),
+                                    0.5,
+                                    nil,
+                                    nil
+                                )
+                            )
+                        )
+                        reviewId = reviewId + 1
+                    }
+                    Button("add linear animation") {
+                        keyframeObjects.append(
+                            KeyframeObject(
+                                type: .linear(
+                                    CGSize(width: Double.random(in: 0.5..<3.0), height: Double.random(in: 0.5..<3.0)),
+                                    0.5,
+                                    nil
+                                )
+                            )
+                        )
+                        reviewId = reviewId + 1
+                    }
+                    Button("add move animation") {
+                        keyframeObjects.append(
+                            KeyframeObject(
+                                type: .move(
+                                    CGSize(width: Double.random(in: 0.5..<3.0), height: Double.random(in: 0.5..<3.0))
+                                )
+                            )
+                        )
                         reviewId = reviewId + 1
                     }
                 }

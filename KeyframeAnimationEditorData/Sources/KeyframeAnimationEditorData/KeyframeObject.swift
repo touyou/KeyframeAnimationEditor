@@ -9,29 +9,31 @@ import SwiftUI
 
 public struct KeyframeObject<Value>: Identifiable where Value: Animatable {
     public let id: UUID
-    let type = "spring"
-    let to: Value
-    let duration: Double?
+    let type: KeyframeType<Value>
     
     // Spring, Linear, Move, Cubic
     @KeyframeTrackContentBuilder<Value>
     var keyframe: some KeyframeTrackContent<Value> {
-        if type == "spring" {
-            SpringKeyframe(to, duration: duration)
-        } else {
-            CubicKeyframe(to, duration: duration ?? 0.5)
+        switch type {
+        case let .cubic(to, duration, startVelocity, endVelocity):
+            CubicKeyframe(to, duration: duration, startVelocity: startVelocity, endVelocity: endVelocity)
+        case let .linear(to, duration, timingCurve):
+            LinearKeyframe(to, duration: duration, timingCurve: timingCurve ?? .linear)
+        case let .move(to):
+            MoveKeyframe(to)
+        case let .spring(to, duration, spring, startVelocity):
+            SpringKeyframe(to, duration: duration, spring: spring ?? Spring(), startVelocity: startVelocity)
         }
     }
         
-    public init(to: Value, duration: Double? = nil) {
+    public init(type: KeyframeType<Value>) {
         self.id = UUID()
-        self.to = to
-        self.duration = duration
+        self.type = type
     }
 }
 
 extension KeyframeObject: CustomStringConvertible {
     public var description: String {
-        "type: \(type), to: \(to), duration: \(String(describing: duration))"
+        type.description
     }
 }
