@@ -17,27 +17,37 @@ public struct EditorView: View {
     public init() {}
     
     public var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-                .keyframeAnimator(
-                    initialValue: AnimationValue(),
-                    repeating: true
-                ) { content, value in
-                    content
-                        .scaleEffect(value.scale)
-                } keyframes: { _ in
-                    KeyframeGenerator.keyframeTrack(path: \AnimationValue.scale, keyframeObjects: keyframeObjects)
-                }
-                .id("animation\(reviewId)")
-                .onTapGesture {
+        HStack {
+            VStack(alignment: .center) {
+                Button("current animation: \(keyframeObjects.count)") {
                     keyframeObjects.append(KeyframeObject(to: CGSize(width: Double.random(in: 0.5..<3.0), height: Double.random(in: 0.5..<3.0))))
                     reviewId = reviewId + 1
                 }
-            Text("current animation: \(keyframeObjects.count)")
+            }
+            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color(uiColor: .systemGroupedBackground))
+
+            VStack(alignment: .center) {
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                    .keyframeAnimator(
+                        initialValue: AnimationValue(),
+                        repeating: true
+                    ) { content, value in
+                        content
+                            .scaleEffect(value.scale)
+                    } keyframes: { _ in
+                        KeyframeGenerator.keyframeTrack(path: \AnimationValue.scale, keyframeObjects: keyframeObjects)
+                    }
+                    .id("animation\(reviewId)")
+            }
+            .padding()
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(.white)
         }
-        .padding()
+        .ignoresSafeArea(.all)
     }
 }
 
