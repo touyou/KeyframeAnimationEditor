@@ -11,6 +11,17 @@ import KeyframeAnimationEditorData
 public struct EditorView: View {
     @State var keyframeObjects: [KeyframeObject<CGSize>] = []
     @State var reviewId = 0
+
+    @State var toX: CGFloat = 1.0
+    @State var toY: CGFloat = 1.0
+    @State var duration: Double = 2.0
+    
+    enum ModeType: String {
+        case spring
+        case cubic
+        case linear
+        case move
+    }
     
     public init() {}
     
@@ -18,51 +29,42 @@ public struct EditorView: View {
         HStack {
             List {
                 Section("control") {
+                    HStack {
+                        Text("目標のX座標: \(toX)")
+                        Spacer()
+                        Slider(value: $toX, in: 0.1...5.0)
+                    }
+                    HStack {
+                        Text("目標のY座標: \(toY)")
+                        Spacer()
+                        Slider(value: $toY, in: 0.1...5.0)
+                    }
+                    HStack {
+                        Text("継続時間: \(duration)")
+                        Spacer()
+                        Slider(value: $duration, in: 0.1...5.0)
+                    }
                     Button("add spring animation") {
                         keyframeObjects.append(
-                            KeyframeObject(
-                                type: .spring(
-                                    CGSize(width: Double.random(in: 0.5..<3.0), height: Double.random(in: 0.5..<3.0)),
-                                    nil,
-                                    nil,
-                                    nil
-                                )
-                            )
+                            KeyframeObject(type: .spring(CGSize(width: toX, height: toY), duration, nil, nil))
                         )
                         reviewId = reviewId + 1
                     }
                     Button("add cubic animation") {
                         keyframeObjects.append(
-                            KeyframeObject(
-                                type: .cubic(
-                                    CGSize(width: Double.random(in: 0.5..<3.0), height: Double.random(in: 0.5..<3.0)),
-                                    0.5,
-                                    nil,
-                                    nil
-                                )
-                            )
+                            KeyframeObject(type: .cubic(CGSize(width: toX, height: toY), duration, nil, nil))
                         )
                         reviewId = reviewId + 1
                     }
                     Button("add linear animation") {
                         keyframeObjects.append(
-                            KeyframeObject(
-                                type: .linear(
-                                    CGSize(width: Double.random(in: 0.5..<3.0), height: Double.random(in: 0.5..<3.0)),
-                                    0.5,
-                                    nil
-                                )
-                            )
+                            KeyframeObject(type: .linear(CGSize(width: toX, height: toY), duration, nil))
                         )
                         reviewId = reviewId + 1
                     }
                     Button("add move animation") {
                         keyframeObjects.append(
-                            KeyframeObject(
-                                type: .move(
-                                    CGSize(width: Double.random(in: 0.5..<3.0), height: Double.random(in: 0.5..<3.0))
-                                )
-                            )
+                            KeyframeObject(type: .move(CGSize(width: toX, height: toY)))
                         )
                         reviewId = reviewId + 1
                     }
