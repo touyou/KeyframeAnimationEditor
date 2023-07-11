@@ -8,6 +8,7 @@
 import SwiftUI
 import KeyframeAnimationEditorData
 import Charts
+import Algorithms
 
 public struct EditorView: View {
     @State var keyframeObjects: [KeyframeObject<CGSize>] = []
@@ -81,12 +82,12 @@ public struct EditorView: View {
             List {
                 Section("control") {
                     HStack {
-                        Text("目標のX座標: \(toX)")
+                        Text("幅のスケール: \(toX)")
                         Spacer()
                         Slider(value: $toX, in: 0.1...5.0)
                     }
                     HStack {
-                        Text("目標のY座標: \(toY)")
+                        Text("高さのスケール: \(toY)")
                         Spacer()
                         Slider(value: $toY, in: 0.1...5.0)
                     }
@@ -121,7 +122,7 @@ public struct EditorView: View {
                     }
                 }
                 
-                Section("spring anim") {
+                Section("Keyframe List") {
                     ForEach(keyframeObjects) { object in
                         Text(object.description)
                     }
@@ -157,69 +158,49 @@ public struct EditorView: View {
                 
                 VStack {
                     VStack {
-                        Chart {
-                            ForEach(keyframeScaleXDatas) { data in
-                                if data.type == .move {
-                                    PointMark(x: .value("time", data.time), y: .value("x", data.to))
-                                } else {
-                                    LineMark(x: .value("time", data.time), y: .value("x", data.to))
-                                        .interpolationMethod(interpolationMethod(type: data.type))
+                        Path() { path in
+                            path.move(to: CGPoint(x: 0.0, y: scale))
+                            keyframeScaleXDatas.indexed().forEach { (index, keyframe) in
+                                switch keyframe.type {
+                                case .spring:
+                                    let control = index > 0 ? CGPoint(x: keyframe.time * scale, y: keyframeScaleXDatas[index - 1].to * scale) : CGPoint(x: keyframe.time * scale, y: keyframe.to * scale)
+                                    path.addQuadCurve(to: CGPoint(x: keyframe.time * scale, y: keyframe.to * scale), control: control)
+                                case .cubic:
+                                    let control1 = index > 0 ? CGPoint(x: keyframeScaleXDatas[index - 1].time * scale, y: keyframeScaleXDatas[index - 1].to * scale) : CGPoint(x: keyframe.time * scale, y: keyframe.to * scale)
+                                    let control2 = index < keyframeScaleXDatas.count - 1 ? CGPoint(x: keyframeScaleXDatas[index + 1].time * scale, y: keyframeScaleXDatas[index + 1].to * scale) : CGPoint(x: keyframe.time * scale, y: keyframe.to * scale)
+                                    path.addCurve(to: CGPoint(x: keyframe.time * scale, y: keyframe.to * scale), control1: control1, control2: control2)
+                                case .linear:
+                                    path.addLine(to: CGPoint(x: keyframe.time * scale, y: keyframe.to * scale))
+                                case .move:
+                                    path.move(to: CGPoint(x: keyframe.time * scale, y: keyframe.to * scale))
                                 }
                             }
                         }
-                        Text("スケールの幅")
+                        .stroke(Color.blue, style: StrokeStyle(lineWidth: 3, lineCap: .round, lineJoin: .round))
+                        Text("幅のスケール")
                     }
                     VStack {
-                        Chart {
-                            ForEach(keyframeScaleYDatas) { data in
-                                if data.type == .move {
-                                    PointMark(x: .value("time", data.time), y: .value("y", data.to))
-                                } else {
-                                    LineMark(x: .value("time", data.time), y: .value("y", data.to))
-                                        .interpolationMethod(interpolationMethod(type: data.type))
+                        Path() { path in
+                            path.move(to: CGPoint(x: 0.0, y: scale))
+                            keyframeScaleYDatas.indexed().forEach { (index, keyframe) in
+                                switch keyframe.type {
+                                case .spring:
+                                    let control = index > 0 ? CGPoint(x: keyframe.time * scale, y: keyframeScaleYDatas[index - 1].to * scale) : CGPoint(x: keyframe.time * scale, y: keyframe.to * scale)
+                                    path.addQuadCurve(to: CGPoint(x: keyframe.time * scale, y: keyframe.to * scale), control: control)
+                                case .cubic:
+                                    let control1 = index > 0 ? CGPoint(x: keyframeScaleYDatas[index - 1].time * scale, y: keyframeScaleYDatas[index - 1].to * scale) : CGPoint(x: keyframe.time * scale, y: keyframe.to * scale)
+                                    let control2 = index < keyframeScaleXDatas.count - 1 ? CGPoint(x: keyframeScaleYDatas[index + 1].time * scale, y: keyframeScaleYDatas[index + 1].to * scale) : CGPoint(x: keyframe.time * scale, y: keyframe.to * scale)
+                                    path.addCurve(to: CGPoint(x: keyframe.time * scale, y: keyframe.to * scale), control1: control1, control2: control2)
+                                case .linear:
+                                    path.addLine(to: CGPoint(x: keyframe.time * scale, y: keyframe.to * scale))
+                                case .move:
+                                    path.move(to: CGPoint(x: keyframe.time * scale, y: keyframe.to * scale))
                                 }
                             }
                         }
-                        Text("スケールの高さ")
+                        .stroke(Color.blue, style: StrokeStyle(lineWidth: 3, lineCap: .round, lineJoin: .round))
+                        Text("高さのスケール")
                     }
-//                    VStack {
-//                        Path() { path in
-//                            path.move(to: CGPoint(x: 0.0, y: scale))
-//                            keyframeScaleXDatas.forEach { keyframe in
-//                                switch keyframe.type {
-//                                case .spring:
-//                                    path.addLine(to: CGPoint(x: keyframe.time * scale, y: keyframe.to * scale))
-//                                case .cubic:
-//                                    path.addLine(to: CGPoint(x: keyframe.time * scale, y: keyframe.to * scale))
-//                                case .linear:
-//                                    path.addLine(to: CGPoint(x: keyframe.time * scale, y: keyframe.to * scale))
-//                                case .move:
-//                                    path.move(to: CGPoint(x: keyframe.time * scale, y: keyframe.to * scale))
-//                                }
-//                            }
-//                        }
-//                        .stroke(Color.blue, style: StrokeStyle(lineWidth: 3, lineCap: .round, lineJoin: .round))
-//                        Text("幅のスケール")
-//                    }
-//                    VStack {
-//                        Path() { path in
-//                            path.move(to: CGPoint(x: 0.0, y: scale))
-//                            keyframeScaleYDatas.forEach { keyframe in
-//                                switch keyframe.type {
-//                                case .spring:
-//                                    path.addLine(to: CGPoint(x: keyframe.time * scale, y: keyframe.to * scale))
-//                                case .cubic:
-//                                    path.addLine(to: CGPoint(x: keyframe.time * scale, y: keyframe.to * scale))
-//                                case .linear:
-//                                    path.addLine(to: CGPoint(x: keyframe.time * scale, y: keyframe.to * scale))
-//                                case .move:
-//                                    path.move(to: CGPoint(x: keyframe.time * scale, y: keyframe.to * scale))
-//                                }
-//                            }
-//                        }
-//                        .stroke(Color.blue, style: StrokeStyle(lineWidth: 3, lineCap: .round, lineJoin: .round))
-//                        Text("高さのスケール")
-//                    }
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
