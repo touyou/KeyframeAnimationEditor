@@ -5,7 +5,7 @@
 //  Created by 藤井陽介 on 2023/06/27.
 //
 
-import Foundation
+import SwiftUI
 
 public struct AnimationValue {
     public var scale = CGSize(width: 1.0, height: 1.0)

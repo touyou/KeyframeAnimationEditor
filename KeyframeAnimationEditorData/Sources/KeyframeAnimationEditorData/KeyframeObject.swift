@@ -9,11 +9,11 @@ import SwiftUI
 
 public struct KeyframeObject<Value>: Identifiable where Value: Animatable {
     public let id: UUID
-    let type: KeyframeType<Value>
+    public let type: KeyframeType<Value>
     
     // Spring, Linear, Move, Cubic
     @KeyframeTrackContentBuilder<Value>
-    var keyframe: some KeyframeTrackContent<Value> {
+    public var keyframe: some KeyframeTrackContent<Value> {
         switch type {
         case let .cubic(to, duration, startVelocity, endVelocity):
             CubicKeyframe(to, duration: duration, startVelocity: startVelocity, endVelocity: endVelocity)
