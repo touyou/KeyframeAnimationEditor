@@ -74,7 +74,7 @@ public struct EditorView: View {
         let to: Double
         let time: Double
     }
-    
+
     public init() {}
     
     public var body: some View {
@@ -84,17 +84,17 @@ public struct EditorView: View {
                     HStack {
                         Text("幅のスケール: \(toX)")
                         Spacer()
-                        Slider(value: $toX, in: 0.1...5.0)
+                        Slider(value: $toX, in: 0.1...5.0, step: 0.05)
                     }
                     HStack {
                         Text("高さのスケール: \(toY)")
                         Spacer()
-                        Slider(value: $toY, in: 0.1...5.0)
+                        Slider(value: $toY, in: 0.1...5.0, step: 0.05)
                     }
                     HStack {
                         Text("継続時間: \(duration)")
                         Spacer()
-                        Slider(value: $duration, in: 0.1...5.0)
+                        Slider(value: $duration, in: 0.1...5.0, step: 0.05)
                     }
                     Button("add spring animation") {
                         keyframeObjects.append(
@@ -134,8 +134,31 @@ public struct EditorView: View {
                 Section("settings") {
                     Slider(value: $scale, in: 5...50)
                 }
+
+                Section("code") {
+                    Text("""
+Image(systemName: "globe")
+    .imageScale(.large)
+    .foregroundStyle(.tint)
+    .keyframeAnimator(
+        initialValue: AnimationValue(),
+        repeating: true
+    ) { content, value in
+        content
+            .scaleEffect(value.scale)
+    } keyframes: { _ in
+      KeyframeTrack(\(#"\"#).scale) {
+        \(keyframeObjects.map { keyframe in keyframe.code }.joined(separator: "\n        "))
+      }
+    }
+""").font(.caption)
+                }
             }
+#if os(macOS)
+            .listStyle(.sidebar)
+#else
             .listStyle(.insetGrouped)
+#endif
             .frame(maxWidth: .infinity, maxHeight: .infinity)
 
             VStack {
@@ -155,7 +178,7 @@ public struct EditorView: View {
                         .id("animation\(reviewId)")
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                
+
                 VStack {
                     VStack {
                         Path() { path in
@@ -163,6 +186,7 @@ public struct EditorView: View {
                             generatePath(path: &path, pointDatas: keyframeScaleXDatas)
                         }
                         .stroke(Color.blue, style: StrokeStyle(lineWidth: 3, lineCap: .round, lineJoin: .round))
+                        .rotation3DEffect(.degrees(180), axis: (x: 1, y: 0, z: 0))
                         Text("幅のスケール")
                     }
                     VStack {
@@ -171,6 +195,7 @@ public struct EditorView: View {
                             generatePath(path: &path, pointDatas: keyframeScaleYDatas)
                         }
                         .stroke(Color.blue, style: StrokeStyle(lineWidth: 3, lineCap: .round, lineJoin: .round))
+                        .rotation3DEffect(.degrees(180), axis: (x: 1, y: 0, z: 0))
                         Text("高さのスケール")
                     }
                 }
@@ -183,6 +208,7 @@ public struct EditorView: View {
     }
     
     func generatePath(path: inout Path, pointDatas: [PointData]) {
+        let size = CGSize(width: 0.1 * scale, height: 0.1 * scale)
         for (index, keyframe) in pointDatas.indexed() {
             let prev = index > 0 ? pointDatas[index - 1] : nil
             let next = index < pointDatas.count - 1 ? pointDatas[index + 1] : nil
@@ -197,20 +223,31 @@ public struct EditorView: View {
             switch keyframe.type {
             case .spring:
                 let control: CGPoint
-                if let next = next {
-                    control = CGPoint(x: (keyframe.time * 3 / 4 - next.time / 4) * scale, y: next.to * scale)
+                if let next = next, next.type != .move {
+                    let target = velocityPoint(near: to, far: CGPoint(x: next.time * scale, y: next.to * scale))
+                    control = 3 * to - 2 * target
                 } else {
-                    control = CGPoint(x: (keyframe.time - 0.1) * scale, y: keyframe.to * scale)
+                    control = CGPoint(x: (keyframe.time - 0.3) * scale, y: keyframe.to * scale)
                 }
                 path.addQuadCurve(to: to, control: control)
             case .cubic:
-                let (control1, control2) = toBezier(fromCatmullP0: from, p1: from, p2: to, p3: to)
-                path.addCurve(to: CGPoint(x: keyframe.time * scale, y: keyframe.to * scale), control1: control1, control2: control2)
+                let p0 = prev != nil && prev?.type != .move ? velocityPoint(near: to, far: from) : nil
+                let p3: CGPoint?
+                if let next = next, next.type != .move {
+                    p3 = velocityPoint(near: to, far: CGPoint(x: next.time * scale, y: next.to * scale))
+                } else if p0 == nil {
+                    p3 = CGPoint(x: (keyframe.time + 0.3) * scale, y: keyframe.to * scale)
+                } else {
+                    p3 = nil
+                }
+                let (control1, control2) = toBezier(fromCatmullP0: p0, p1: from, p2: to, p3: p3)
+                path.addCurve(to: to, control1: control1, control2: control2)
             case .linear:
                 path.addLine(to: to)
             case .move:
                 path.move(to: to)
             }
+            path.addEllipse(in: CGRect(origin: to - CGPoint(x: 0.1 * scale, y: 0.1 * scale) / 2, size: size))
         }
     }
     
@@ -251,10 +288,36 @@ public struct EditorView: View {
         let s2 = (b - 3 * p1 + 6 * s1) / 3
         return (s1, s2)
     }
+
+    func velocityPoint(near p0: CGPoint, far p1: CGPoint) -> CGPoint {
+        return (3 * p0 + p1) / 4
+    }
 }
 
 struct EditorView_Preview: PreviewProvider {
     static var previews: some View {
         EditorView()
+    }
+}
+
+extension KeyframeObject<CGSize> {
+    public var code: String {
+        switch type {
+        case let .cubic(to, duration, _, _):
+            let toStr = "CGSize(width: \(String(format: "%.2f", to.width)), height: \(String(format: "%.2f", to.height)))"
+            let durationStr = String(format: "%.2f", duration)
+            return "CubicKeyframe(\(toStr), duration: \(durationStr))"
+        case let .linear(to, duration, _):
+            let toStr = "CGSize(width: \(String(format: "%.2f", to.width)), height: \(String(format: "%.2f", to.height)))"
+            let durationStr = String(format: "%.2f", duration)
+            return "LinearKeyframe(\(toStr), duration: \(durationStr), timingCurve: .linear)"
+        case let .move(to):
+            let toStr = "CGSize(width: \(String(format: "%.2f", to.width)), height: \(String(format: "%.2f", to.height)))"
+            return "MoveKeyframe(\(toStr))"
+        case let .spring(to, duration, _, _):
+            let toStr = "CGSize(width: \(String(format: "%.2f", to.width)), height: \(String(format: "%.2f", to.height)))"
+            let durationStr = String(format: "%.2f", duration ?? 0.5)
+            return "SpringKeyframe(\(toStr), duration: \(durationStr))"
+        }
     }
 }
