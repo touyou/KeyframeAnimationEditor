@@ -73,6 +73,10 @@ public struct EditorView: View {
         let type: ModeType
         let to: Double
         let time: Double
+
+        var cgPoint: CGPoint {
+            CGPoint(x: time, y: to)
+        }
     }
 
     public init() {}
@@ -209,32 +213,41 @@ Image(systemName: "globe")
     
     func generatePath(path: inout Path, pointDatas: [PointData]) {
         let size = CGSize(width: 0.1 * scale, height: 0.1 * scale)
+        let origin = CGPoint(x: 0, y: scale)
+        var prevStart: CGPoint? = nil
         for (index, keyframe) in pointDatas.indexed() {
             let prev = index > 0 ? pointDatas[index - 1] : nil
             let next = index < pointDatas.count - 1 ? pointDatas[index + 1] : nil
             
             let from: CGPoint
             if let prev = prev {
-                from = CGPoint(x: prev.time * scale, y: prev.to * scale)
+                from = prev.cgPoint * scale
             } else {
-                from = CGPoint(x: 0.0, y: scale)
+                from = origin
             }
-            let to = CGPoint(x: keyframe.time * scale, y: keyframe.to * scale)
+            let to = keyframe.cgPoint * scale
+
             switch keyframe.type {
             case .spring:
                 let control: CGPoint
                 if let next = next, next.type != .move {
-                    let target = velocityPoint(near: to, far: CGPoint(x: next.time * scale, y: next.to * scale))
+                    let target = velocityPoint(near: to, far: next.cgPoint * scale)
                     control = 3 * to - 2 * target
                 } else {
                     control = CGPoint(x: (keyframe.time - 0.3) * scale, y: keyframe.to * scale)
                 }
                 path.addQuadCurve(to: to, control: control)
             case .cubic:
-                let p0 = prev != nil && prev?.type != .move ? velocityPoint(near: to, far: from) : nil
+                let p0: CGPoint?
+                if let prevStart = prevStart, prev?.type != .move {
+                    p0 = velocityPoint(near: from, far: prevStart)
+                } else {
+                    p0 = nil
+                }
+
                 let p3: CGPoint?
                 if let next = next, next.type != .move {
-                    p3 = velocityPoint(near: to, far: CGPoint(x: next.time * scale, y: next.to * scale))
+                    p3 = velocityPoint(near: to, far: next.cgPoint * scale)
                 } else if p0 == nil {
                     p3 = CGPoint(x: (keyframe.time + 0.3) * scale, y: keyframe.to * scale)
                 } else {
@@ -248,6 +261,10 @@ Image(systemName: "globe")
                 path.move(to: to)
             }
             path.addEllipse(in: CGRect(origin: to - CGPoint(x: 0.1 * scale, y: 0.1 * scale) / 2, size: size))
+
+            if index >= 1 {
+                prevStart = from
+            }
         }
     }
     
